@@ -16,7 +16,7 @@ def process_image(image_file):
         maskBGR = cv2.erode(maskBGR, kernel, iterations=2)
         # resultLAB = cv2.bitwise_and(original, original, mask=maskBGR)
         bbox = cv2.boundingRect(maskBGR)
-        print(bbox)
+        # print(bbox)
         x, y, w, h = bbox
         crop = original[y:y + h, x:x + w]
 
