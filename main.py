@@ -1,13 +1,15 @@
 from pdf2image import convert_from_path
 from scipy import misc
 from PIL import Image
+import numpy as np
 from resizeimage import resizeimage
+import matplotlib.pyplot as plt
 import os
 from copy import copy
 
 do_pdf2img = False
 do_color2bw = True
-do_process_image = False
+do_process_image = True
 
 # convert pdf to images
 if do_pdf2img:
@@ -28,8 +30,7 @@ if do_color2bw:
             for file in os.listdir(os.path.join("Data", dir)):
                 file_path = os.path.join(os.path.join("Data", dir), file)
                 image_file = Image.open(file_path)  # open colour image
-                image_file = image_file.convert('L').point(
-                    lambda band: 0 if band > 120 else 255)  # convert image to black and white
+                image_file = image_file.convert('L').point(lambda band: 255 if band > 240 else 0)  # convert image to black and white
                 image_file.save(file_path)
 
 
@@ -90,6 +91,10 @@ if do_process_image:
             for file in os.listdir(os.path.join("Data", dir)):
                 file_path = os.path.join(os.path.join("Data", dir), file)
                 matrix = misc.imread(file_path)
+                # sum_vect = np.sum(matrix, axis=1)# / len(matrix[0])
+                # a = np.hstack((matrix.normal(size=1000),matrix.normal(loc=5, scale=2, size=1000)))
+                plt.hist(np.array(matrix).flatten(), bins='auto')  # arguments are passed to np.histogram
+                plt.show()
                 # matrix = BFS(matrix)
                 # misc.imsave(file_path, matrix)
                 # matprint(matrix)
