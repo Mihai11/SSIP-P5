@@ -6,9 +6,10 @@ from resizeimage import resizeimage
 import matplotlib.pyplot as plt
 import os
 from copy import copy
+from image_mask import process_image
 
 do_pdf2img = False
-do_color2bw = True
+do_color2bw = False
 do_process_image = True
 
 # convert pdf to images
@@ -90,11 +91,12 @@ if do_process_image:
         if os.path.isdir(os.path.join("Data", dir)):
             for file in os.listdir(os.path.join("Data", dir)):
                 file_path = os.path.join(os.path.join("Data", dir), file)
-                matrix = misc.imread(file_path)
+                process_image(file_path)
+                # matrix = misc.imread(file_path)
                 # sum_vect = np.sum(matrix, axis=1)# / len(matrix[0])
                 # a = np.hstack((matrix.normal(size=1000),matrix.normal(loc=5, scale=2, size=1000)))
-                plt.hist(np.array(matrix).flatten(), bins='auto')  # arguments are passed to np.histogram
-                plt.show()
+                # plt.hist(np.array(matrix).flatten(), bins='auto')  # arguments are passed to np.histogram
+                # plt.show()
                 # matrix = BFS(matrix)
                 # misc.imsave(file_path, matrix)
                 # matprint(matrix)

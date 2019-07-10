@@ -1,29 +1,32 @@
 import cv2
 import numpy as np
 
-minBGR = (240, 240, 240)
-maxBGR = (255, 255, 255)
 
-if __name__ == '__main__':
-    image_file = 'Data/-374-rau/-374-rau_out_2.png'
 
+def process_image(image_file):
+    minBGR = (250, 250, 250)
+    maxBGR = (255, 255, 255)
     with open(image_file, 'rb') as f:
         original = cv2.imdecode(np.frombuffer(f.read(), dtype=np.uint8), cv2.IMREAD_COLOR)
         image = original
         # imageLAB = cv2.cvtColor(original, cv2.COLOR_BGR2LAB)
-        maskLAB = cv2.inRange(image, minBGR, maxBGR)
+        maskBGR = cv2.inRange(image, minBGR, maxBGR)
         kernel = np.ones((5, 5), np.uint8)
-        # dilate maskLAB to take over edges of pixels of color
-        maskLAB = cv2.dilate(maskLAB, kernel, iterations=2)
-        resultLAB = cv2.bitwise_and(original, original, mask=maskLAB)
-        bbox = cv2.boundingRect(maskLAB)
+        # dilate maskBGR to take over edges of pixels of color
+        maskBGR = cv2.dilate(maskBGR, kernel, iterations=2)
+        resultLAB = cv2.bitwise_and(original, original, mask=maskBGR)
+        bbox = cv2.boundingRect(maskBGR)
         print(bbox)
         x, y, w, h = bbox
         crop = original[y:y + h, x:x + w]
 
         # cv2.imshow('result',crop)
-        cv2.imwrite('crop.jpg', crop, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
-        cv2.imwrite('resultLAB.jpg', resultLAB, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
+        cv2.imwrite(image_file+"_p.png", crop, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
+        # cv2.imwrite('resultLAB.jpg', resultLAB, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
+
+
+if __name__ == '__main__':
+    image_file = 'Data/-374-rau/-374-rau_out_2.png'
 
 
 
