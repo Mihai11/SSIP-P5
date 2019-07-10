@@ -1,0 +1,6 @@
+numpy
+scipy
+scikit-learn
+pdf2image
+python-resize-image
+
