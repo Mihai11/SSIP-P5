@@ -8,6 +8,7 @@ import os
 from copy import copy
 from image_mask import process_image
 
+
 do_pdf2img = False
 do_color2bw = False
 do_process_image = True
@@ -31,7 +32,8 @@ if do_color2bw:
             for file in os.listdir(os.path.join("Data", dir)):
                 file_path = os.path.join(os.path.join("Data", dir), file)
                 image_file = Image.open(file_path)  # open colour image
-                image_file = image_file.convert('L').point(lambda band: 255 if band > 240 else 0)  # convert image to black and white
+                image_file = image_file.convert('L').point(
+                    lambda band: 255 if band > 240 else 0)  # convert image to black and white
                 image_file.save(file_path)
 
 

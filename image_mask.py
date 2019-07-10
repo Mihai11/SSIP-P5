@@ -11,10 +11,10 @@ def process_image(image_file):
         image = original
         # imageLAB = cv2.cvtColor(original, cv2.COLOR_BGR2LAB)
         maskBGR = cv2.inRange(image, minBGR, maxBGR)
-        kernel = np.ones((5, 5), np.uint8)
+        kernel = np.ones((100, 100), np.uint8)
         # dilate maskBGR to take over edges of pixels of color
-        maskBGR = cv2.dilate(maskBGR, kernel, iterations=2)
-        resultLAB = cv2.bitwise_and(original, original, mask=maskBGR)
+        maskBGR = cv2.erode(maskBGR, kernel, iterations=2)
+        # resultLAB = cv2.bitwise_and(original, original, mask=maskBGR)
         bbox = cv2.boundingRect(maskBGR)
         print(bbox)
         x, y, w, h = bbox
