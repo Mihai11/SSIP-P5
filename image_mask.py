@@ -11,6 +11,8 @@ def process_image(image_file):
         image = original
         # imageLAB = cv2.cvtColor(original, cv2.COLOR_BGR2LAB)
         maskBGR = cv2.inRange(image, minBGR, maxBGR)
+        sum_vector = maskBGR.sum(axis=0)
+
         kernel = np.ones((100, 100), np.uint8)
         # dilate maskBGR to take over edges of pixels of color
         maskBGR = cv2.erode(maskBGR, kernel, iterations=2)
@@ -18,11 +20,16 @@ def process_image(image_file):
         bbox = cv2.boundingRect(maskBGR)
         # print(bbox)
         x, y, w, h = bbox
+        if sum(sum_vector[:int(len(sum_vector)/2)]) > sum(sum_vector[int(len(sum_vector)/2):]):
+            x -= int(0.035 * len(maskBGR[0]))
+            w += int(0.035 * len(maskBGR[0]))
+            print("cotor pe stanga")
+        else:
+            w += int(0.035 * len(maskBGR[0]))
+            print("cotor pe dreapta")
         crop = original[y:y + h, x:x + w]
 
-        # cv2.imshow('result',crop)
         cv2.imwrite(image_file+"_p.png", crop, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
-        # cv2.imwrite('resultLAB.jpg', resultLAB, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
 
 
 if __name__ == '__main__':
