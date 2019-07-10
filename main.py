@@ -1,3 +1,4 @@
+import tqdm as tqdm
 from pdf2image import convert_from_path
 from scipy import misc
 from PIL import Image
@@ -89,7 +90,7 @@ def BFS(matrix):
 if do_process_image:
     for dir in os.listdir("Data"):
         if os.path.isdir(os.path.join("Data", dir)):
-            for file in os.listdir(os.path.join("Data", dir)):
+            for file in tqdm.tqdm(os.listdir(os.path.join("Data", dir)), desc=dir):
                 file_path = os.path.join(os.path.join("Data", dir), file)
                 process_image(file_path)
                 # matrix = misc.imread(file_path)
