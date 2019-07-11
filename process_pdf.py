@@ -3,7 +3,36 @@ import glob
 import os
 from multiprocessing.pool import Pool
 
+import wand
+from wand.color import Color
+from wand.image import Image as WandImage
+
+from config import Config
+
 pool = None
+
+
+def extract_pdf_images(pdf_file, args):
+    with open(pdf_file, 'rb') as fpdf:
+        with WandImage(file=fpdf, resolution=Config.RESOLUTION, depth=8) as img:
+            print('pdf_pages = ', len(img.sequence), pdf_file)
+            for page_num, crt_img in enumerate(img.sequence):
+                fn_start = str(page_num).zfill(3)
+                fn = fn_start + Config.IMAGE_EXTENSION
+                if not os.path.exists(fn):
+                    with WandImage(
+                            resolution=(Config.RESOLUTION, Config.RESOLUTION), depth=8) as dst_image:
+                        # converted.background_color = Color('white')
+                        # converted.alpha_channel = 'remove'
+                        # converted.save(filename=fn)
+                        with WandImage(crt_img) as im2:
+                            im2.background_color = Color('white')
+                            im2.alpha_channel = 'remove'
+                            dst_image.sequence.append(im2)
+                            # dst_image.resolution=(resolution,resolution)
+                            dst_image.units = 'pixelsperinch'
+                            dst_image.background_color = Color('white')
+                            dst_image.save(filename=fn)
 
 
 def process_pdf_folder(args):
@@ -14,6 +43,7 @@ def process_pdf_folder(args):
     global pool
     if pool is None:
         pool = Pool()
+    extract_pdf_images(pdf_list[0], args)
 
     pass
 
