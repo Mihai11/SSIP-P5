@@ -57,22 +57,6 @@ def extract_pdf_images(p):
     image_list = glob.glob(f'{crt_work_folder}/*{Config.IMAGE_EXTENSION}', recursive=False)
     return [('/'.join((name, os.path.splitext(os.path.split(image_fn)[1])[0])), image_fn) for image_fn in image_list]
 
-
-def create_pdf(p):
-    args, name, page_list = p
-    print(f'Generating pdf {name}')
-    pdf_fn = os.path.join(args.output_folder, name + '.pdf')
-    os.makedirs(os.path.dirname(pdf_fn), exist_ok=True)
-
-    pdf = FPDF()
-    # imagelist is the list with all image filenames
-    for image_fn in tqdm.tqdm(sorted(page_list), desc=f'Generating {name}.pdf'):
-        pdf.add_page()
-        # image=cv2.imread(image_fn)
-        pdf.image(image_fn)
-    pdf.output(pdf_fn, "F")
-
-
 def rotate_image(p):
     name, image_fn, args = p
 
@@ -85,6 +69,23 @@ def rotate_image(p):
         cv2.imwrite(rotated_fn, rotated)
 
     return (name, rotated_fn)
+
+
+def create_pdf(p):
+    args, name, page_list = p
+    print(f'Generating pdf {name}')
+    pdf_fn = os.path.join(args.output_folder, name + '.pdf')
+    os.makedirs(os.path.dirname(pdf_fn), exist_ok=True)
+
+    pdf = FPDF()
+    # imagelist is the list with all image filenames
+    for image_fn in tqdm.tqdm(sorted(page_list), desc=f'Generating {name}.pdf'):
+        pdf.add_page()
+        # image=cv2.imread(image_fn)
+        # TODO: make sure that  the image is properly positioned in page
+        pdf.image(image_fn)
+    pdf.output(pdf_fn, "F")
+
 
 
 def process_pdf_folder(args):
