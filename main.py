@@ -40,16 +40,18 @@ if __name__ == '__main__':
         for dir in os.listdir("Data"):
             if os.path.isdir(os.path.join("Data", dir)):
                 for file in tqdm.tqdm(os.listdir(os.path.join("Data", dir)), desc=dir):
-                    file_path = os.path.join(os.path.join("Data", dir), file)
-                    rotated_image = get_rotation_angle(file_path)
-                    misc.imsave(file_path + "_p.png", rotated_image)
-                    x, y, w, h = bbox_image(file_path + "_p.png")
-                    crop_image(x, y, w, h, file_path)
-                    # matrix = misc.imread(file_path)
-                    # sum_vect = np.sum(matrix, axis=1)# / len(matrix[0])
-                    # a = np.hstack((matrix.normal(size=1000),matrix.normal(loc=5, scale=2, size=1000)))
-                    # plt.hist(np.array(matrix).flatten(), bins='auto')  # arguments are passed to np.histogram
-                    # plt.show()
-                    # matrix = BFS(matrix)
-                    # misc.imsave(file_path, matrix)
-                    # matprint(matrix)
+                    original_file_path = os.path.join(os.path.join("Data", dir), file)
+                    file_path = os.path.dirname(original_file_path) + "\\processed\\" + original_file_path.split("\\")[-1]
+                    if os.path.isfile(original_file_path):
+                        rotated_image = get_rotation_angle(original_file_path)
+                        misc.imsave(file_path, rotated_image)
+                        x, y, w, h = bbox_image(file_path)
+                        crop_image(x, y, w, h, file_path, file_path)
+                        # matrix = misc.imread(file_path)
+                        # sum_vect = np.sum(matrix, axis=1)# / len(matrix[0])
+                        # a = np.hstack((matrix.normal(size=1000),matrix.normal(loc=5, scale=2, size=1000)))
+                        # plt.hist(np.array(matrix).flatten(), bins='auto')  # arguments are passed to np.histogram
+                        # plt.show()
+                        # matrix = BFS(matrix)
+                        # misc.imsave(file_path, matrix)
+                        # matprint(matrix)

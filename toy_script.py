@@ -1,9 +1,13 @@
-from image_mask import process_image
-from PIL import Image
+from image_mask import bbox_image
+from image_mask import *
+from scipy import misc
 
-file = "-374-rau_out_4.png"
-# image_file = Image.open(file)  # open colour image
-# image_file = image_file.convert('L')
-# image_file.save("p_" + file)
-# process_image("p_" + file)
-process_image(file)
+
+file_path = "Ion_Heliade_Radulescu_out_7.png"
+output_file = "processed\\Ion_Heliade_Radulescu_out_7.png"
+file_path = "output+25.jpg"
+file_path = "output25.jpg"
+rotated_image = get_rotation_angle(file_path)
+misc.imsave(output_file, rotated_image)
+x, y, w, h = bbox_image(output_file)
+crop_image(x, y, w, h, output_file, output_file)
