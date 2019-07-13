@@ -57,18 +57,18 @@ def extract_pdf_images(p):
     image_list = glob.glob(f'{crt_work_folder}/*{Config.IMAGE_EXTENSION}', recursive=False)
     return [('/'.join((name, os.path.splitext(os.path.split(image_fn)[1])[0])), image_fn) for image_fn in image_list]
 
-def rotate_image(p):
+def deskew_image(p):
     name, image_fn, args = p
 
-    rotated_fn = os.path.join(args.work_folder, '002_rotated', name) + Config.IMAGE_EXTENSION
-    os.makedirs(os.path.dirname(rotated_fn), exist_ok=True)
-    if not os.path.exists(rotated_fn):
+    deskew_fn = os.path.join(args.work_folder, '002_deskew', name) + Config.IMAGE_EXTENSION
+    os.makedirs(os.path.dirname(deskew_fn), exist_ok=True)
+    if not os.path.exists(deskew_fn):
         original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
         # TODO: generate rotated image
         rotated = original
-        cv2.imwrite(rotated_fn, rotated)
+        cv2.imwrite(deskew_fn, rotated)
 
-    return (name, rotated_fn)
+    return (name, deskew_fn)
 
 
 def create_pdf(p):
@@ -101,11 +101,11 @@ def process_pdf_folder(args):
         image_list.extend(r)
     print(f'Found {len(image_list)} images')
     print(f'First item is  {image_list[0]}')
-    rotated_images = [r for r in tqdm.tqdm(pool.imap(rotate_image, ((p[0], p[1], args) for p in image_list)),
-                                           total=len(image_list), desc='rotating images')]
-    print(f'First item in rotated images is {rotated_images[0]}')
+    deskew_images = [r for r in tqdm.tqdm(pool.imap(deskew_image, ((p[0], p[1], args) for p in image_list)),
+                                           total=len(image_list), desc='deskewing images')]
+    print(f'First item in deskew images is {deskew_images[0]}')
 
-    final_images = rotated_images
+    final_images = deskew_images
 
     # group images by pdf name
     grp_name = defaultdict(list)
