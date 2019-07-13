@@ -7,3 +7,5 @@ opencv-python
 matplotlib
 tqdm
 wand
+Pillow
+fpdf
