@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import wand
 import tqdm
+from PIL import Image
 from fpdf import FPDF
 from wand.color import Color
 from wand.image import Image as WandImage
@@ -57,6 +58,7 @@ def extract_pdf_images(p):
     image_list = glob.glob(f'{crt_work_folder}/*{Config.IMAGE_EXTENSION}', recursive=False)
     return [('/'.join((name, os.path.splitext(os.path.split(image_fn)[1])[0])), image_fn) for image_fn in image_list]
 
+
 def deskew_image(p):
     name, image_fn, args = p
 
@@ -73,19 +75,20 @@ def deskew_image(p):
 
 def create_pdf(p):
     args, name, page_list = p
+    page_list = sorted(page_list)
     print(f'Generating pdf {name}')
     pdf_fn = os.path.join(args.output_folder, name + '.pdf')
     os.makedirs(os.path.dirname(pdf_fn), exist_ok=True)
 
-    pdf = FPDF()
+    image = Image.open(page_list[0])
+    width, height = image.size
+
+    pdf = FPDF(unit="pt", format=[width, height])
     # imagelist is the list with all image filenames
-    for image_fn in tqdm.tqdm(sorted(page_list), desc=f'Generating {name}.pdf'):
+    for image_fn in tqdm.tqdm(page_list, desc=f'Generating {name}.pdf'):
         pdf.add_page()
-        # image=cv2.imread(image_fn)
-        # TODO: make sure that  the image is properly positioned in page
         pdf.image(image_fn)
     pdf.output(pdf_fn, "F")
-
 
 
 def process_pdf_folder(args):
@@ -102,7 +105,7 @@ def process_pdf_folder(args):
     print(f'Found {len(image_list)} images')
     print(f'First item is  {image_list[0]}')
     deskew_images = [r for r in tqdm.tqdm(pool.imap(deskew_image, ((p[0], p[1], args) for p in image_list)),
-                                           total=len(image_list), desc='deskewing images')]
+                                          total=len(image_list), desc='deskewing images')]
     print(f'First item in deskew images is {deskew_images[0]}')
 
     final_images = deskew_images
@@ -115,7 +118,6 @@ def process_pdf_folder(args):
     final_data = [r for r in tqdm.tqdm(pool.map(create_pdf, ((args, name, file_list)
                                                              for name, file_list in grp_name.items())),
                                        total=len(grp_name), desc='Generating output pdf')]
-
 
 
 if __name__ == '__main__':
