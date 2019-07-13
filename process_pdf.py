@@ -60,7 +60,7 @@ def rotate_image(p):
     name, image_fn, args = p
 
     rotated_fn = os.path.join(args.work_folder, '002_rotated', name) + Config.IMAGE_EXTENSION
-    os.makedirs(os.path.basename(rotated_fn), exist_ok=True)
+    os.makedirs(os.path.dirname(rotated_fn), exist_ok=True)
     if not os.path.exists(rotated_fn):
         original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
         # TODO: generate rotated image
