@@ -1,12 +1,14 @@
 import argparse
 import glob
 import os
+from collections import defaultdict
 from multiprocessing.pool import Pool
 
 import cv2
 import numpy as np
 import wand
 import tqdm
+from fpdf import FPDF
 from wand.color import Color
 from wand.image import Image as WandImage
 
@@ -56,6 +58,21 @@ def extract_pdf_images(p):
     return [('/'.join((name, os.path.splitext(os.path.split(image_fn)[1])[0])), image_fn) for image_fn in image_list]
 
 
+def create_pdf(p):
+    args, name, page_list = p
+    print(f'Generating pdf {name}')
+    pdf_fn = os.path.join(args.output_folder, name + '.pdf')
+    os.makedirs(os.path.dirname(pdf_fn), exist_ok=True)
+
+    pdf = FPDF()
+    # imagelist is the list with all image filenames
+    for image_fn in tqdm.tqdm(sorted(page_list), desc=f'Generating {name}.pdf'):
+        pdf.add_page()
+        # image=cv2.imread(image_fn)
+        pdf.image(image_fn)
+    pdf.output(pdf_fn, "F")
+
+
 def rotate_image(p):
     name, image_fn, args = p
 
@@ -87,7 +104,17 @@ def process_pdf_folder(args):
                                            total=len(image_list), desc='rotating images')]
     print(f'First item in rotated images is {rotated_images[0]}')
 
-    pass
+    final_images = rotated_images
+
+    # group images by pdf name
+    grp_name = defaultdict(list)
+    for name, fn in final_images:
+        grp_name[name.split('/')[0]].append(fn)
+
+    final_data = [r for r in tqdm.tqdm(pool.map(create_pdf, ((args, name, file_list)
+                                                             for name, file_list in grp_name.items())),
+                                       total=len(grp_name), desc='Generating output pdf')]
+
 
 
 if __name__ == '__main__':
