@@ -56,9 +56,6 @@ def getOrientation(pts, img):
 
 
 def get_rotated_image(image_file):
-    # image = Image.open(image_file)  # open colour image
-    # image = image.convert('L').point(lambda band: 255 if band > 250 else 0)  # convert image to black and white
-    # image.save(image_file + "_p.png")
     src = cv2.imread(image_file)
     # _, thresh1 = cv2.threshold(src, 250, 255, cv2.THRESH_BINARY)
     gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
@@ -70,11 +67,7 @@ def get_rotated_image(image_file):
         area = cv2.contourArea(c)
         if area > max_area:
             max_area, contour = area, c
-        # cv2.drawContours(src, contours, i, (0, 0, 255), 2)
     angle, cntr = getOrientation(contour, src)
-    # rotated = imutils.rotate_bound(image, angle)
     print("angle", angle)
-    # cv2.drawContours(src, contours, contours.index(contour), (0, 0, 255), 2)
-    # rot_mat = cv2.getRotationMatrix2D(cntr, -angle, 1.0)
     rot_mat = cv2.getRotationMatrix2D(cntr, -angle, 1.0)
     return cv2.warpAffine(src, rot_mat, (src.shape[1], src.shape[0]))  # , borderValue=(255, 255, 255))  # , flags=cv2.INTER_LINEAR)

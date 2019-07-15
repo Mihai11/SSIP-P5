@@ -13,7 +13,7 @@ from wand.image import Image as WandImage
 
 from config import Config
 
-from image_mask import get_rotated_image
+from image_mask import get_rotated_image, bbox_image, crop_image
 
 pool = None
 
@@ -91,9 +91,8 @@ def extract_page_image(p):
     page_fn = os.path.join(args.work_folder, '004_extract_page', name) + Config.IMAGE_EXTENSION
     os.makedirs(os.path.dirname(page_fn), exist_ok=True)
     if not os.path.exists(page_fn):
-        original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
-        page = original  # TODO: call extract page
-        cv2.imwrite(page_fn, page)
+        x, y, w, h = bbox_image(image_fn)
+        crop_image(x, y, w, h, image_fn, page_fn)
 
     return (name, page_fn)
 
@@ -150,7 +149,7 @@ def process_pdf_folder(args):
     for name, fn in final_images:
         grp_name[name.split('/')[0]].append(fn)
 
-    final_data = [r for r in tqdm.tqdm(pool.map(create_pdf, ((args, name, file_list)
+    _ = [r for r in tqdm.tqdm(pool.map(create_pdf, ((args, name, file_list)
                                                              for name, file_list in grp_name.items())),
                                        total=len(grp_name), desc='Generating output pdf')]
 
