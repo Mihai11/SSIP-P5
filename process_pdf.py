@@ -108,10 +108,10 @@ def create_pdf(p):
     width, height = image.size
 
     pdf = FPDF(unit="pt", format=[width, height])
-    # imagelist is the list with all image filenames
+    pdf.add_page()
     for image_fn in tqdm.tqdm(page_list, desc=f'Generating {name}.pdf'):
-        pdf.add_page()
         pdf.image(image_fn)
+
     pdf.output(pdf_fn, "F")
 
 
