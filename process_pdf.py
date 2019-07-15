@@ -111,6 +111,7 @@ def create_pdf(p):
     pdf.add_page()
     for image_fn in tqdm.tqdm(page_list, desc=f'Generating {name}.pdf'):
         pdf.image(image_fn)
+
     pdf.output(pdf_fn, "F")
 
 
