@@ -5,8 +5,6 @@ from collections import defaultdict
 from multiprocessing.pool import Pool
 
 import cv2
-import numpy as np
-import wand
 import tqdm
 from PIL import Image
 from fpdf import FPDF
@@ -121,7 +119,11 @@ def create_pdf(p):
 def process_pdf_folder(args):
     os.makedirs(args.output_folder, exist_ok=True)
     os.makedirs(args.work_folder, exist_ok=True)
-    pdf_list = glob.glob(f'{args.input_folder}/**/*.pdf', recursive=True)
+    if os.path.isfile(args.input_folder):
+        pdf_list = [args.input_folder]
+    else:
+        pdf_list = glob.glob(f'{args.input_folder}/**/*.pdf', recursive=True)
+
     print(f'Found {len(pdf_list)} pdf files')
     global pool
     if pool is None:

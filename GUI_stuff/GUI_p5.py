@@ -1,6 +1,7 @@
 # https://www.programminginpython.com/create-temperature-converter-app-python-gui-using-tkinter/
 # https://www.geeksforgeeks.org/python-gui-tkinter/
 import tkinter as tk
+from process_pdf import process_pdf_folder
 from tkinter import ttk
 import os
 from tkinter import filedialog
@@ -117,8 +118,14 @@ class GUI(tk.Tk):
     # call your functions below:
     # ------------------------------------------------
     def doSomething(self):
-
-        print(self.mainPath)
+        class Args:
+            def __init__(self, input_folder, output_folder, work_folder):
+                self.input_folder = input_folder
+                self.output_folder = output_folder
+                self.work_folder = work_folder
+        args = Args(self.mainPath, self.mainPath, self.mainPath)
+        process_pdf_folder(args)
+        # print(self.mainPath)
 
 
 if __name__ == "__main__":
