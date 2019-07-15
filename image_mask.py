@@ -23,10 +23,10 @@ def bbox_image(image_file):
         # print(bbox)
         x, y, w, h = bbox
         if sum(sum_vector[:int(len(sum_vector) / 2)]) > sum(sum_vector[int(len(sum_vector) / 2):]):
-            x -= int(0.035 * len(maskBGR[0]))
-            w += int(0.035 * len(maskBGR[0]))
+            x -= int(0.05 * len(maskBGR[0]))
+            w += int(0.05 * len(maskBGR[0]))
         else:
-            w += int(0.035 * len(maskBGR[0]))
+            w += int(0.05 * len(maskBGR[0]))
         return x, y, w, h
 
 
@@ -51,7 +51,7 @@ def getOrientation(pts, img):
 
     cv2.circle(img, cntr, 3, (255, 0, 255), 2)
     # angle = atan2(eigenvectors[0, 1], eigenvectors[0, 0])  # orientation in radians
-    return np.arccos(np.clip(np.dot(np.array([-eigenvectors[0][0], eigenvectors[0][1]]), np.array([0, 1])), -1.0, 1.0)) * np.sign(eigenvectors[0][0])*10, cntr
+    return np.arccos(np.clip(np.dot(np.array([-eigenvectors[0][0], eigenvectors[0][1]]), np.array([0, 1])), -1.0, 1.0)) * np.sign(eigenvectors[0][0]) * 10, cntr
     # return angle, cntr
 
 
@@ -68,6 +68,7 @@ def get_rotated_image(image_file):
         if area > max_area:
             max_area, contour = area, c
     angle, cntr = getOrientation(contour, src)
-    print("angle", angle)
+    # print("angle", angle)
     rot_mat = cv2.getRotationMatrix2D(cntr, -angle, 1.0)
-    return cv2.warpAffine(src, rot_mat, (src.shape[1], src.shape[0]))  # , borderValue=(255, 255, 255))  # , flags=cv2.INTER_LINEAR)
+    rotated_img = cv2.warpAffine(src, rot_mat, (src.shape[1], src.shape[0]))  # , borderValue=(255, 255, 255))  # , flags=cv2.INTER_LINEAR)
+    return rotated_img

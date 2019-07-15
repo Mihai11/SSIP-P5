@@ -1,11 +1,21 @@
 # https://www.programminginpython.com/create-temperature-converter-app-python-gui-using-tkinter/
 # https://www.geeksforgeeks.org/python-gui-tkinter/
 import tkinter as tk
-from process_pdf import process_pdf_folder
 from tkinter import ttk
+from process_pdf import process_pdf_folder
 import os
 from tkinter import filedialog
 from PIL import ImageTk, Image
+import shutil
+from threading import Thread
+
+remove_additional_files = True
+
+
+class ConvertionArgs:
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
 
 
 class GUI(tk.Tk):
@@ -13,7 +23,7 @@ class GUI(tk.Tk):
     def __init__(self, master=None):
         tk.Tk.__init__(self, master)
         self.title("SSIP 2019 -- Project No.5 -- Scan PDF --")
-        self.geometry("800x500")
+        self.geometry("900x550")
         self.configure(background='#19cefd')  # #00ff00
         self.grid()
 
@@ -41,7 +51,7 @@ class GUI(tk.Tk):
         self.fileNameEntry.grid(row=2, column=1)
         # --------
         self.submitButton = tk.Button(master, text="Submit", fg="red", font=("bold"), command=self.buttonClick)
-        self.submitButton.grid(row=2, column=2)
+        self.submitButton.grid(row=2, column=2, padx=10)
         # -------------------------------------------------------------------
         # -------------------------------------------------------------------
 
@@ -81,12 +91,18 @@ class GUI(tk.Tk):
 
         # -------------------------------------------------------------------
         # -------------------------------------------------------------------
-        self.convertTriggerButton = tk.Button(master, text="Convert:", fg="green", font=("bold"),
-                                              command=self.doSomething)
-        self.convertTriggerButton.grid(row=8, column=4)
-
+        self.convertTriggerButton = tk.Button(master, text="Convert:", fg="green", font=("bold"), command=self.startThread)
+        self.convertTriggerButton.grid(row=10, column=4)
+        self.progress = ttk.Progressbar(self, orient="horizontal", length=200, mode="determinate")
+        self.progress.grid(row=10, column=0)
+        self.maxbytes = 100
+        self.progress["maximum"] = 100
         # -------------------------------------------------------------------
         # --------------------------------------------------------------------
+
+    def startThread(self):
+        t1 = Thread(target=self.doSomething)
+        t1.start()
 
     def getFilePath(self):
         return self.mainPath
@@ -108,24 +124,29 @@ class GUI(tk.Tk):
 
     def drawConfirmation(self, fileNameBoolean):
         if fileNameBoolean:
+            self.lnameLabel = tk.Label(self, text="Select your files", bg='#19cefd')
             self.lnameLabel.grid_forget()
             self.lnameLabel = tk.Label(self, text=self.mainPath, bg='#19cefd')
-            self.lnameLabel.grid(row=8, column=5)
+            self.lnameLabel.grid(row=10, column=5)
         else:
             self.lnameLabel = tk.Label(self, text="Invalid path!", bg='#19cefd')
-            self.lnameLabel.grid(row=8, column=5)
+            self.lnameLabel.grid(row=10, column=5)
+
+    def updateProgressBar(self, value):
+        '''simulate reading 500 bytes; update progress bar'''
+        self.value = value * 20
+        self.progress["value"] = self.value
 
     # call your functions below:
     # ------------------------------------------------
     def doSomething(self):
-        class Args:
-            def __init__(self, input_folder, output_folder, work_folder):
-                self.input_folder = input_folder
-                self.output_folder = output_folder
-                self.work_folder = work_folder
-        args = Args(self.mainPath, self.mainPath, self.mainPath)
-        process_pdf_folder(args)
-        # print(self.mainPath)
+        self.progress["value"] = 0
+        output_folder = self.mainPath if os.path.isdir(self.mainPath) else os.path.dirname(self.mainPath)
+        output_folder = "{}/{}".format(output_folder, self.mainPath.split("/")[-1].split(".")[0])
+        args = ConvertionArgs(input_folder=self.mainPath, output_folder=output_folder, work_folder=output_folder + "/work")
+        process_pdf_folder(args, self.updateProgressBar)
+        if remove_additional_files:
+            shutil.rmtree(output_folder + "/work", ignore_errors=True)
 
 
 if __name__ == "__main__":

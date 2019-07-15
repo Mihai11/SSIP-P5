@@ -3,7 +3,123 @@
   <component name="ChangeListManager">
     <list default="true" id="258f00be-a247-4384-ae2d-44b281c86ca5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_0.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_1.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_2.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_3.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_4.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_5.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_6.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/-374-rau/-374-rau_out_7.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_0.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_1.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_2.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_3.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_4.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_5.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_6.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Gherasim/Gherasim_out_7.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_0.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_1.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_10.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_11.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_12.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_13.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_14.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_15.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_2.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_3.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_4.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_5.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_6.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_7.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_8.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Grigore_Alexandrescu/Grigore_Alexandrescu_out_9.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_0.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_1.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_10.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_11.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_12.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_13.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_14.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_15.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_2.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_3.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_4.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_5.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_6.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_7.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_8.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Ion_Heliade_Radulescu/Ion_Heliade_Radulescu_out_9.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_0.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_1.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_2.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_3.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_4.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_5.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_6.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_7.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Simeon_Marcovici/Simeon_Marcovici_out_8.png_p.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI_stuff/GUI_p5.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI_stuff/GUI_p5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image_mask.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_mask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/process_pdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/process_pdf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/toy_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/toy_script.py" afterDir="false" />
     </list>
@@ -18,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="47" selection-start-line="47" selection-end-line="48" selection-end-column="68" />
+            <state relative-caret-position="255">
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -30,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/image_mask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+            <state relative-caret-position="1156">
+              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -42,22 +158,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI_stuff/GUI_p5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+            <state relative-caret-position="185">
+              <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
               <folding>
-                <element signature="e#147#167#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/toy_script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#149#169#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/process_pdf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="152" column="57" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+            <state relative-caret-position="143">
+              <caret line="143" column="19" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -78,7 +182,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn_orientation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="969">
               <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -96,6 +200,19 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>o</find>
+      <find>progress</find>
+      <find>read_bytes</find>
+      <find>print</find>
+      <find>self.after</find>
+      <find>convert</find>
+      <find>Convert</find>
+      <find>Progress</find>
+      <find>progress =</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -103,10 +220,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/GUI_stuff/GUI_p5.py" />
-        <option value="$PROJECT_DIR$/image_mask.py" />
         <option value="$PROJECT_DIR$/toy_script.py" />
+        <option value="$PROJECT_DIR$/image_mask.py" />
         <option value="$PROJECT_DIR$/process_pdf.py" />
+        <option value="$PROJECT_DIR$/GUI_stuff/GUI_p5.py" />
       </list>
     </option>
   </component>
@@ -168,7 +285,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.toy_script">
+  <component name="RunManager" selected="Python.GUI_p5">
     <configuration name="GUI_p5" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SSIP-P5" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -276,9 +393,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GUI_p5" />
         <item itemvalue="Python.toy_script" />
         <item itemvalue="Python.process_pdf" />
-        <item itemvalue="Python.GUI_p5" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.image_mask" />
       </list>
@@ -302,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563193107002</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="a fost integrata decuparea">
+      <created>1563194660702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563194660702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -314,31 +438,51 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28288543" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.21782178" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43988684" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.446959" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.23762377" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.4893918" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.165786" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2560113" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21782178" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.4893918" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32956153" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="procesam si pdf si director cu pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="procesam si pdf si director cu pdf" />
+    <MESSAGE value="a fost integrata decuparea" />
+    <option name="LAST_COMMIT_MESSAGE" value="a fost integrata decuparea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/image_mask.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -368,12 +512,8 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Data/-374-rau/-374-rau_out_0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/-374-rau/-374-rau_out_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/-374-rau/-374-rau_out_0.png" />
+    <entry file="file://$PROJECT_DIR$/Data/-374-rau/-374-rau_out_2.png" />
     <entry file="file://$PROJECT_DIR$/crop.jpg" />
     <entry file="file://$PROJECT_DIR$/resultLAB.jpg" />
     <entry file="file://$PROJECT_DIR$/../.PyCharmCE2019.1/system/python_stubs/724690448/cv2/cv2/__init__.py">
@@ -384,9 +524,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Ion_Heliade_Radulescu_out_2.png_p.png" />
+    <entry file="file://$PROJECT_DIR$/toy_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../AppData/Local/Continuum/anaconda3/envs/py36/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="734" column="40" selection-start-line="734" selection-start-column="36" selection-end-line="734" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../AppData/Local/Continuum/anaconda3/envs/py36/Lib/site-packages/fpdf/fpdf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-93">
+          <caret line="247" column="34" selection-start-line="247" selection-start-column="23" selection-end-line="247" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image_mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nn_orientation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="969">
           <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -396,48 +580,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI_stuff/GUI_p5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+        <state relative-caret-position="185">
+          <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
           <folding>
-            <element signature="e#147#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="47" selection-start-line="47" selection-end-line="48" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/toy_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image_mask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#149#169#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/process_pdf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="152" column="57" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+        <state relative-caret-position="143">
+          <caret line="143" column="19" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
