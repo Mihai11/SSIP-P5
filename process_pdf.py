@@ -15,6 +15,8 @@ from wand.image import Image as WandImage
 
 from config import Config
 
+from image_mask import get_rotated_image
+
 pool = None
 
 
@@ -65,9 +67,8 @@ def deskew_image(p):
     deskew_fn = os.path.join(args.work_folder, '002_deskew', name) + Config.IMAGE_EXTENSION
     os.makedirs(os.path.dirname(deskew_fn), exist_ok=True)
     if not os.path.exists(deskew_fn):
-        original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
-        # TODO: generate rotated image
-        rotated = original
+        # original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
+        rotated = get_rotated_image(image_fn)
         cv2.imwrite(deskew_fn, rotated)
 
     return (name, deskew_fn)

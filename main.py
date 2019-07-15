@@ -43,7 +43,7 @@ if __name__ == '__main__':
                     original_file_path = os.path.join(os.path.join("Data", dir), file)
                     file_path = os.path.dirname(original_file_path) + "\\processed\\" + original_file_path.split("\\")[-1]
                     if os.path.isfile(original_file_path):
-                        rotated_image = get_rotation_angle(original_file_path)
+                        rotated_image = get_rotated_image(original_file_path)
                         misc.imsave(file_path, rotated_image)
                         x, y, w, h = bbox_image(file_path)
                         crop_image(x, y, w, h, file_path, file_path)

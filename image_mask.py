@@ -55,7 +55,7 @@ def getOrientation(pts, img):
     # return angle, cntr
 
 
-def get_rotation_angle(image_file):
+def get_rotated_image(image_file):
     # image = Image.open(image_file)  # open colour image
     # image = image.convert('L').point(lambda band: 255 if band > 250 else 0)  # convert image to black and white
     # image.save(image_file + "_p.png")
