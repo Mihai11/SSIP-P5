@@ -9,3 +9,4 @@ tqdm
 wand
 Pillow
 fpdf
+keras
