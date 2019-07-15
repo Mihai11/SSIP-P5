@@ -64,7 +64,7 @@ def extract_pdf_images(p):
 def deskew_image(p):
     name, image_fn, args = p
 
-    deskew_fn = os.path.join(args.work_folder, '002_deskew', name) + Config.IMAGE_EXTENSION
+    deskew_fn = os.path.join(args.work_folder, '003_deskew', name) + Config.IMAGE_EXTENSION
     os.makedirs(os.path.dirname(deskew_fn), exist_ok=True)
     if not os.path.exists(deskew_fn):
         # original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
@@ -72,6 +72,19 @@ def deskew_image(p):
         cv2.imwrite(deskew_fn, rotated)
 
     return (name, deskew_fn)
+
+
+def autoorient_image(p):
+    name, image_fn, args = p
+
+    autoorient_fn = os.path.join(args.work_folder, '002_autoorient', name) + Config.IMAGE_EXTENSION
+    os.makedirs(os.path.dirname(autoorient_fn), exist_ok=True)
+    if not os.path.exists(autoorient_fn):
+        original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
+        autoorient = original  # TODO: call NN
+        cv2.imwrite(autoorient_fn, autoorient)
+
+    return (name, autoorient_fn)
 
 
 def create_pdf(p):
@@ -105,7 +118,11 @@ def process_pdf_folder(args):
         image_list.extend(r)
     print(f'Found {len(image_list)} images')
     print(f'First item is  {image_list[0]}')
-    deskew_images = [r for r in tqdm.tqdm(pool.imap(deskew_image, ((p[0], p[1], args) for p in image_list)),
+
+    oriented_images = [r for r in tqdm.tqdm(pool.imap(autoorient_image, ((p[0], p[1], args) for p in image_list)),
+                                            total=len(image_list), desc='orienting images')]
+
+    deskew_images = [r for r in tqdm.tqdm(pool.imap(deskew_image, ((p[0], p[1], args) for p in oriented_images)),
                                           total=len(image_list), desc='deskewing images')]
     print(f'First item in deskew images is {deskew_images[0]}')
 

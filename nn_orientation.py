@@ -58,8 +58,10 @@ if __name__ == '__main__':
 
     print(f'Input shape {X_train.shape}')
     # train the model
-    train_size = None  # 10000
-    train_window = None  # 24
-    model.fit(X_train[:train_size, :train_window, :train_window],
-              y_train[:train_size, :],
+    train_size = 10000  # 10000
+    train_window = 2  # None  # 24
+    X_train_adjusted = X_train[:train_size, train_window:-train_window, train_window:-train_window]
+    y_train_adjusted = y_train[:train_size, :]
+    print(f'Training on {X_train_adjusted.shape} {y_train_adjusted.shape}')
+    model.fit(X_train_adjusted, y_train_adjusted,
               validation_data=(X_test, y_test), epochs=3)
