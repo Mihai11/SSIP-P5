@@ -61,6 +61,18 @@ def extract_pdf_images(p):
     return [('/'.join((name, os.path.splitext(os.path.split(image_fn)[1])[0])), image_fn) for image_fn in image_list]
 
 
+def autoorient_image(p):
+    name, image_fn, args = p
+
+    autoorient_fn = os.path.join(args.work_folder, '002_autoorient', name) + Config.IMAGE_EXTENSION
+    os.makedirs(os.path.dirname(autoorient_fn), exist_ok=True)
+    if not os.path.exists(autoorient_fn):
+        original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
+        autoorient = original  # TODO: call NN
+        cv2.imwrite(autoorient_fn, autoorient)
+
+    return (name, autoorient_fn)
+
 def deskew_image(p):
     name, image_fn, args = p
 
@@ -73,18 +85,6 @@ def deskew_image(p):
 
     return (name, deskew_fn)
 
-
-def autoorient_image(p):
-    name, image_fn, args = p
-
-    autoorient_fn = os.path.join(args.work_folder, '002_autoorient', name) + Config.IMAGE_EXTENSION
-    os.makedirs(os.path.dirname(autoorient_fn), exist_ok=True)
-    if not os.path.exists(autoorient_fn):
-        original = cv2.imread(image_fn, cv2.IMREAD_COLOR)
-        autoorient = original  # TODO: call NN
-        cv2.imwrite(autoorient_fn, autoorient)
-
-    return (name, autoorient_fn)
 
 
 def create_pdf(p):
