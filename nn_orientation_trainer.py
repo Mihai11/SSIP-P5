@@ -12,7 +12,7 @@ def train(training_folder, validation_folder):
     mX, my = train_generator[0]
     model = setup_model(mX, my)
     model.fit_generator(train_generator, epochs=10, validation_data=validation_generator,
-                        use_multiprocessing=True, max_queue_size=10, workers=1)
+                        use_multiprocessing=False, max_queue_size=10, workers=1)
     return model
 
 
