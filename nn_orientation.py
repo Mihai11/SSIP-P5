@@ -1,3 +1,7 @@
+import glob
+import random
+
+import cv2
 import numpy as np
 
 from tensorflow.python.keras import Input, Model
@@ -8,22 +12,48 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint, EarlyStopping, Te
     ReduceLROnPlateau
 from tensorflow.python.keras.optimizers import Nadam
 
+from image_utils import rotate_image_right_angles
+
 FLOAT_TYPE = np.float32
 
+DEFAULT_WINDOW_SIZES = [256,
+                        # 512, 768, 1024,
+                        ]
 
-class ImageOrientationSequene(Sequence):
+class ImageOrientationSequence(Sequence):
 
     def __init__(self, folder_name, image_extension='.png',
-                 window_sizes=[256, 512, 768, 1024], batches_per_iteration=1000, batch_size=128) -> None:
+                 window_sizes=None, batches_per_iteration=1000,
+                 batch_size=32) -> None:
         super().__init__()
         self.folder_name = folder_name
-        self.window_sizes = window_sizes
+        self.window_sizes = window_sizes if window_sizes else DEFAULT_WINDOW_SIZES
         self.samples_per_iteration = batches_per_iteration
-        self.batch_size = 128
+        self.batch_size = batch_size
+        self.image_list = []
+        self.labels_encoded = []
+        for image_fn in glob.glob(f'{folder_name}/*{image_extension}', recursive=False):
+            img = cv2.imread(image_fn, cv2.IMREAD_GRAYSCALE) / 255
+            img = img.reshape((img.shape + (1,)))
+            for rotate in range(4):
+                self.image_list.append(rotate_image_right_angles(img, rotate))
+                label = np.zeros((1, 4), dtype=FLOAT_TYPE)
+                label[0, rotate] = 1.
+                self.labels_encoded.append(label)
+        print(f'Got {len(self.image_list)} rotated images')
 
     def __getitem__(self, index):
-        # TODO: implement this
-        return np.zeros((32, 32, 100)), np.zeros((32, 32, 100))
+        window_size = random.choice(self.window_sizes)
+        X = np.zeros((self.batch_size, window_size, window_size, 1), dtype=FLOAT_TYPE)
+        y = np.zeros((self.batch_size, 4), dtype=FLOAT_TYPE)
+        for i in range(self.batch_size):
+            index = random.randint(0, len(self.image_list) - 1)
+            image = self.image_list[index]
+            x_image = random.randint(0, image.shape[0] - window_size - 1)
+            y_image = random.randint(0, image.shape[1] - window_size - 1)
+            X[i, :, :, :] = image[x_image:x_image + window_size, y_image:y_image + window_size, :]
+            y[i, :] = self.labels_encoded[index]
+        return X, y
 
     def __len__(self):
         return self.samples_per_iteration
@@ -39,12 +69,16 @@ def setup_model(X, y):
     layer = input
 
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
-    layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
+    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(16, kernel_size=3, activation='relu')(layer)
+
+    # layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
+    # layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
 
     layer = GlobalAveragePooling2D()(layer)
 
-    layer = Dense(y.shape[-1] * 2, activation='relu')(layer)
+    # layer = Dense(y.shape[-1] * 2, activation='relu')(layer)
 
     layer = Dense(y.shape[-1], activation='softmax')(layer)
 
