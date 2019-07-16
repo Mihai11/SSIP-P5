@@ -6,7 +6,7 @@ import numpy as np
 
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.layers import Conv1D, Conv2D, GlobalAveragePooling2D, \
-    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten
+    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten, GlobalMaxPooling2D
 from tensorflow.python.keras.utils import Sequence
 from tensorflow.python.keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, CSVLogger, TerminateOnNaN, \
     ReduceLROnPlateau
@@ -16,10 +16,11 @@ from image_utils import rotate_image_right_angles
 
 FLOAT_TYPE = np.float32
 
-DEFAULT_WINDOW_SIZES = [ 256,
-                     #   512, 768,
-    # 1024,
+DEFAULT_WINDOW_SIZES = [256,
+                        #   512, 768,
+                        # 1024,
                         ]
+
 
 class ImageOrientationSequence(Sequence):
 
@@ -77,7 +78,8 @@ def setup_model(X, y):
     # layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
     # layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
 
-    layer = GlobalAveragePooling2D()(layer)
+    # layer = GlobalAveragePooling2D()(layer)
+    layer = GlobalMaxPooling2D()(layer)
 
     # layer = Dense(y.shape[-1] * 2, activation='relu')(layer)
 
