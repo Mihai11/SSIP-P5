@@ -2,13 +2,34 @@ import numpy as np
 
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.layers import Conv1D, Conv2D, GlobalAveragePooling2D, \
-    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D
+    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten
 from tensorflow.python.keras.utils import Sequence
 from tensorflow.python.keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, CSVLogger, TerminateOnNaN, \
     ReduceLROnPlateau
 from tensorflow.python.keras.optimizers import Nadam
 
 FLOAT_TYPE = np.float32
+
+
+class ImageOrientationSequene(Sequence):
+
+    def __init__(self, folder_name, image_extension='.png',
+                 window_sizes=[256, 512, 768, 1024], batches_per_iteration=1000, batch_size=128) -> None:
+        super().__init__()
+        self.folder_name = folder_name
+        self.window_sizes = window_sizes
+        self.samples_per_iteration = batches_per_iteration
+        self.batch_size = 128
+
+    def __getitem__(self, index):
+        # TODO: implement this
+        return np.zeros((32, 32, 100)), np.zeros((32, 32, 100))
+
+    def __len__(self):
+        return self.samples_per_iteration
+
+    def on_epoch_end(self):
+        super().on_epoch_end()
 
 
 def setup_model(X, y):
@@ -19,9 +40,11 @@ def setup_model(X, y):
 
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
     layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
-    layer = Conv2D(16, kernel_size=7, activation='relu')(layer)
+    layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
 
     layer = GlobalAveragePooling2D()(layer)
+
+    layer = Dense(y.shape[-1] * 2, activation='relu')(layer)
 
     layer = Dense(y.shape[-1], activation='softmax')(layer)
 
@@ -58,9 +81,10 @@ if __name__ == '__main__':
 
     print(f'Input shape {X_train.shape}')
     # train the model
-    train_size = 10000  # 10000
-    train_window = 2  # None  # 24
-    X_train_adjusted = X_train[:train_size, train_window:-train_window, train_window:-train_window]
+    train_size = 20000  # 10000
+    train_window = None  # 24
+    X_train_adjusted = X_train[:train_size, train_window:-train_window if train_window is not None else None,
+                       train_window:-train_window if train_window is not None else None]
     y_train_adjusted = y_train[:train_size, :]
     print(f'Training on {X_train_adjusted.shape} {y_train_adjusted.shape}')
     model.fit(X_train_adjusted, y_train_adjusted,
