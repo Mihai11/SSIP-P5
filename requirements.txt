@@ -10,3 +10,4 @@ wand
 Pillow
 fpdf
 keras
+h5py

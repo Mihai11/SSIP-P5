@@ -1,3 +1,5 @@
+import os
+
 import cv2
 import numpy as np
 
@@ -21,9 +23,11 @@ def get_orientation(model, image):
             raise Exception('Expected to have grayscale image')
     if np.max(image) > 1.:
         raise Exception('Image is expected to be normalized to 1')
-    result = model.predict(image)
+    batch = image.reshape((1,) + image.shape)
+    result = model.predict(batch)
     print(f'orientation_result shape {result.shape}')
-    return np.argmax(result[0,:])
+    result = result[0]
+    return np.argmax(result[0, :])
 
 
 def generator_test(input_folder):
@@ -36,6 +40,10 @@ def generator_test(input_folder):
 if __name__ == '__main__':
     # generator_test('orientation_data/train')
     model = train('orientation_data/train', 'orientation_data/validation')
+    model_folder = 'orientation_model'
+    os.makedirs(model_folder, exist_ok=True)
+    model.save(os.path.join(model_folder, 'orientation.h5'))
+
     img = cv2.imread('orientation_data/validation/g_005.png', cv2.IMREAD_GRAYSCALE)
     img = img / 255
     result = get_orientation(model, img)
