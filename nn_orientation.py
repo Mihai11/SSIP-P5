@@ -17,7 +17,8 @@ from image_utils import rotate_image_right_angles
 FLOAT_TYPE = np.float32
 
 DEFAULT_WINDOW_SIZES = [256,
-                        #   512, 768,
+                        512,
+                        #768,
                         # 1024,
                         ]
 
@@ -26,7 +27,7 @@ class ImageOrientationSequence(Sequence):
 
     def __init__(self, folder_name, image_extension='.png',
                  window_sizes=None, batches_per_iteration=1000,
-                 batch_size=256) -> None:
+                 batch_size=64) -> None:
         super().__init__()
         self.folder_name = folder_name
         self.window_sizes = window_sizes if window_sizes else DEFAULT_WINDOW_SIZES
@@ -72,7 +73,8 @@ def setup_model(X, y):
 
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    # layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
     # layer = Conv2D(16, kernel_size=3, activation='relu')(layer)
 
     # layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
