@@ -11,7 +11,7 @@ def train(training_folder, validation_folder):
     validation_generator = ImageOrientationSequence(validation_folder, batches_per_iteration=10)
     mX, my = train_generator[0]
     model = setup_model(mX, my)
-    model.fit_generator(train_generator, epochs=3, validation_data=validation_generator)
+    model.fit_generator(train_generator, epochs=10, validation_data=validation_generator)
     return model
 
 
@@ -27,7 +27,7 @@ def get_orientation(model, image):
     result = model.predict(batch)
     print(f'orientation_result shape {result.shape}')
     result = result[0]
-    return np.argmax(result[0, :])
+    return np.argmax(result[:])
 
 
 def generator_test(input_folder):
