@@ -6,7 +6,7 @@ import numpy as np
 
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.layers import Conv1D, Conv2D, GlobalAveragePooling2D, \
-    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten, GlobalMaxPooling2D
+    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten, GlobalMaxPooling2D, MaxPooling2D
 from tensorflow.python.keras.utils import Sequence
 from tensorflow.python.keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, CSVLogger, TerminateOnNaN, \
     ReduceLROnPlateau
@@ -18,7 +18,7 @@ FLOAT_TYPE = np.float32
 
 DEFAULT_WINDOW_SIZES = [256,
                         512,
-                        #768,
+                        # 768,
                         # 1024,
                         ]
 
@@ -27,7 +27,7 @@ class ImageOrientationSequence(Sequence):
 
     def __init__(self, folder_name, image_extension='.png',
                  window_sizes=None, batches_per_iteration=1000,
-                 batch_size=64) -> None:
+                 batch_size=32) -> None:
         super().__init__()
         self.folder_name = folder_name
         self.window_sizes = window_sizes if window_sizes else DEFAULT_WINDOW_SIZES
@@ -74,12 +74,13 @@ def setup_model(X, y):
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
     layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(64, kernel_size=3, activation='relu')(layer)
     # layer = Conv2D(16, kernel_size=3, activation='relu')(layer)
 
     # layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
     # layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
 
+    layer = Dropout(0.5)(layer)
     # layer = GlobalAveragePooling2D()(layer)
     layer = GlobalMaxPooling2D()(layer)
 
