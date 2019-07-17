@@ -6,7 +6,7 @@ import numpy as np
 
 from tensorflow.python.keras import Input, Model
 from tensorflow.python.keras.layers import Conv1D, Conv2D, GlobalAveragePooling2D, \
-    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten, GlobalMaxPooling2D, MaxPooling2D
+    Concatenate, Dropout, TimeDistributed, Dense, GlobalAveragePooling1D, Flatten, GlobalMaxPooling2D, MaxPooling2D, Add
 from tensorflow.python.keras.utils import Sequence
 from tensorflow.python.keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard, CSVLogger, TerminateOnNaN, \
     ReduceLROnPlateau
@@ -71,16 +71,17 @@ def setup_model(X, y):
 
     layer = input
 
-    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    layer = Conv2D(32, kernel_size=3, activation='relu')(layer)
-    layer = Conv2D(64, kernel_size=3, activation='relu')(layer)
-    # layer = Conv2D(16, kernel_size=3, activation='relu')(layer)
+    layer = Conv2D(16, kernel_size=3, padding='same', activation='relu')(layer)
+
+    for i in range(10):
+        previous_layer = layer
+        layer = Conv2D(16, kernel_size=3, padding='same', activation='relu')(layer)
+        layer = Add()([previous_layer, layer])
 
     # layer = Conv2D(32, kernel_size=5, activation='relu')(layer)
     # layer = Conv2D(32, kernel_size=7, activation='relu')(layer)
 
-    layer = Dropout(0.5)(layer)
+    # layer = Dropout(0.5)(layer)
     # layer = GlobalAveragePooling2D()(layer)
     layer = GlobalMaxPooling2D()(layer)
 
