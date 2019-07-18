@@ -7,8 +7,8 @@ from nn_orientation import ImageOrientationSequence, setup_model
 
 
 def train(training_folder, validation_folder):
-    train_generator = ImageOrientationSequence(training_folder, batches_per_iteration=100)
-    validation_generator = ImageOrientationSequence(validation_folder, batches_per_iteration=100)
+    train_generator = ImageOrientationSequence(training_folder, batches_per_iteration=1000)
+    validation_generator = ImageOrientationSequence(validation_folder, batches_per_iteration=200)
     mX, my = train_generator[0]
     model = setup_model(mX, my)
     model.fit_generator(train_generator, epochs=50, validation_data=validation_generator,
